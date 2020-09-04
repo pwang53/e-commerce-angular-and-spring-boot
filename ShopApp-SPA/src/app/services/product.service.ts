@@ -7,7 +7,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductService {
-    private baseUrl = 'http://localhost:8080/api/products';
+
+    //private baseUrl = 'http://localhost:8080/api/products';
+    //Spring Data JPA return only the first page of 20 items, to change that add size behind
+    private baseUrl = 'http://localhost:8080/api/products?size=100';
 
     constructor(private httpClient: HttpClient) { }
 
