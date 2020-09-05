@@ -46,14 +46,19 @@
 
 
 
+
 <div class="main-content">
   <div class="section-content section-content-p30">
-    <section class="text-center">
-      <div class="container">
-        <h1>{{currentCategoryName}}</h1>
-      </div>
-    </section>
+    <div>
+      <h1 class="text-center">{{currentCategoryName}}</h1>
+    </div>
+    
     <hr>
+
+    <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12 text-center" role="alert">
+      No Products found.
+    </div>
+
     <div class="row">
       <div *ngFor="let item of products" class="col-md-3">
         <!-- 种类是card，margin button:4 -->
@@ -61,7 +66,8 @@
           <!-- 卡片照片放上面，居中 -->
           <div class="myCard text-center img-thumbnail">
             <!-- 照片-->
-            <img style="height: 100%; width: 100%; display: block;" src="{{item.imageUrl}}">
+            <img style="height: 100%; width: 100%; display: block;" src="{{item.imageUrl}}"
+              alt="assets/images/products/placeholder.png">
           </div>
 
           <div class="card-body p-0 text-center">
@@ -70,6 +76,7 @@
             </h6>
             <div class="price text-center"> {{ item.unitPrice | currency:'USD' }}</div>
           </div>
+
           <div class="card-footer text-center">
             <a href="#" class="primary-btn text-center">Add to cart</a>
           </div>

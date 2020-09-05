@@ -30,15 +30,26 @@ export class ProductService {
         //     pipe(map(response => response)).subscribe(data => console.log(data['_embedded']['products']));
 
         // return this.httpClient.get<Product[]>(searchUrl).pipe(map(data => data['_embedded']['products']));
-        return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
-            map(response => response._embedded.products)
-        );
+        return this.getProducts(searchUrl);
     }
 
     getProductCategories(): Observable<ProductCategory[]> {
 
         return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
             map(response => response._embedded.productCategory)
+        );
+    }
+
+    //http://localhost:8080/api/products/search/findByNameContaining?name=mug
+    searchProducts(theKeyword: string): Observable<Product[]> {
+        const searchUrl = `${this.productUrl}/search/findByNameContaining?name=${theKeyword}`;
+
+        return this.getProducts(searchUrl);
+    }
+
+    getProducts(searchUrl: string): Observable<Product[]> {
+        return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+            map(response => response._embedded.products)
         );
     }
 }
