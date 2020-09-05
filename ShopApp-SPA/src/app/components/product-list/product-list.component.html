@@ -20,17 +20,58 @@
   </table>
 </div> -->
 
-<div class="main-content">
+
+<!-- <div class="main-content">
   <div class="section-content section-content-p30">
+    <section class="text-center">
+      <div class="container">
+        <h1>{{currentCategoryName}}</h1>
+      </div>
+    </section>
+    <hr>
     <div class="container-fludi">
       <div class="row">
-        <!-- loop over the collection of products -->
         <div *ngFor="let tempProduct of products" class="col-md-3">
           <div class="product-box">
             <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
             <h1> {{ tempProduct.name }}</h1>
             <div class="price"> {{ tempProduct.unitPrice | currency:'USD' }}</div>
             <a href="#" class="primary-btn">Add to cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <section class="text-center">
+      <div class="container">
+        <h1>{{currentCategoryName}}</h1>
+      </div>
+    </section>
+    <hr>
+    <div class="row">
+      <div *ngFor="let item of products" class="col-md-3">
+        <!-- 种类是card，margin button:4 -->
+        <div class="card mb-4">
+          <!-- 卡片照片放上面，居中 -->
+          <div class="myCard text-center img-thumbnail">
+            <!-- 照片-->
+            <img style="height: 100%; width: 100%; display: block;" src="{{item.imageUrl}}">
+          </div>
+
+          <div class="card-body p-0 text-center">
+            <h6 class="card-title text-center">
+              {{item.name}}
+            </h6>
+            <div class="price text-center"> {{ item.unitPrice | currency:'USD' }}</div>
+          </div>
+          <div class="card-footer text-center">
+            <a href="#" class="primary-btn text-center">Add to cart</a>
           </div>
         </div>
       </div>
