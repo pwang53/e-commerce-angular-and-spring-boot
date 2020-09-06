@@ -9,12 +9,14 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/search/search.component';
+import { ProductDetailsComponent } from './components/ProductDetails/ProductDetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductCategoryMenuComponent,
+    ProductDetailsComponent,
     SearchComponent
   ],
   imports: [

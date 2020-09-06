@@ -66,14 +66,18 @@
           <!-- 卡片照片放上面，居中 -->
           <div class="myCard text-center img-thumbnail">
             <!-- 照片-->
-            <img style="height: 100%; width: 100%; display: block;" src="{{item.imageUrl}}"
-              alt="assets/images/products/placeholder.png">
+            <a routerLink="/products/{{ item.id }}">
+              <img style="height: 100%; width: 100%; display: block;" src="{{item.imageUrl}}"
+                alt="assets/images/products/placeholder.png">
+            </a>
           </div>
 
           <div class="card-body p-0 text-center">
-            <h6 class="card-title text-center">
-              {{item.name}}
-            </h6>
+            <a routerLink="/products/{{ item.id }}">
+              <h6 class="card-title text-center">
+                {{item.name}}
+              </h6>
+            </a>
             <div class="price text-center"> {{ item.unitPrice | currency:'USD' }}</div>
           </div>
 
